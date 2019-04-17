@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzcloud.auth.dao.MemberDao">
+
+    <resultMap id="baseResultMap" autoMapping="true" type="com.curise.eshop.common.entity.Member">
+        <id property="id" column="id" />
+        <collection property="roles" fetchType="eager" column="id" select="com.lzcloud.auth.dao.RoleDao.findByMemberId"></collection>
+    </resultMap>
+
+    <sql id="normalItems">
+        id,member_name,email,mobile,sex
+    </sql>
+
+    <select id="findByMemberName" parameterType="java.lang.String" resultMap="baseResultMap">
+        select * from member where member_name = #{memberName,jdbcType=VARCHAR}
+    </select>
+
+
+</mapper>
