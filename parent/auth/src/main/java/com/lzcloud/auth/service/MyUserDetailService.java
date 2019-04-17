@@ -1,9 +1,9 @@
 package com.lzcloud.auth.service;
 
 import com.lzcloud.auth.dao.MemberDao;
-import com.curise.eshop.common.entity.Member;
-import com.curise.eshop.common.entity.Permission;
-import com.curise.eshop.common.entity.Role;
+import com.lzcloud.common.entity.Member;
+import com.lzcloud.common.entity.Permission;
+import com.lzcloud.common.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,8 +19,8 @@ import java.util.Set;
 /**
  * 〈自定义UserDetailService〉
  *
- * @author Curise
- * @create 2018/12/13
+ * @author lzheng
+ * @create 2019/04/13
  * @since 1.0.0
  */
 @Service("userDetailService")

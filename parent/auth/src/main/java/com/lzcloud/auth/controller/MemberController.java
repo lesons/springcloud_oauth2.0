@@ -1,8 +1,8 @@
 package com.lzcloud.auth.controller;
 
 import com.lzcloud.auth.service.MyUserDetailService;
-import com.curise.eshop.common.entity.Result;
-import com.curise.eshop.common.enumeration.ResultCode;
+import com.lzcloud.common.entity.Result;
+import com.lzcloud.common.enumeration.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +12,8 @@ import java.security.Principal;
 /**
  * 〈会员Controller〉
  *
- * @author Curise
- * @create 2018/12/13
+ * @author lzheng
+ * @create 2019/04/13
  * @since 1.0.0
  */
 @RestController

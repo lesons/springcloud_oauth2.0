@@ -1,7 +1,6 @@
-package com.lzcloud.auth.config.oauth;
+package com.lzcloud.member.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -9,16 +8,16 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 〈资源认证服务器〉
+ * 〈OAuth资源服务配置〉
  *
  * @author lzheng
- * @create 2019/04/13
+ * @create 2019/04/14
  * @since 1.0.0
  */
 @Configuration
 @EnableResourceServer
-@Order(3)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http

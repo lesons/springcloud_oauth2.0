@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lzcloud.auth.dao.RoleDao">
 
-    <resultMap id="baseResultMap" type="com.curise.eshop.common.entity.Role">
+    <resultMap id="baseResultMap" type="com.lzcloud.common.entity.Role">
         <id property="id" column="id"  />
         <collection property="permissions" fetchType="eager" column="id" select="com.lzcloud.auth.dao.PermissionDao.findByRoleId"></collection>
     </resultMap>

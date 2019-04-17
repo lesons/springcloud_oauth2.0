@@ -1,15 +1,15 @@
 package com.lzcloud.auth.dao;
 
 
-import com.curise.eshop.common.entity.Role;
+import com.lzcloud.common.entity.Role;
 
 import java.util.List;
 
 /**
  * 〈角色Dao〉
  *
- * @author Curise
- * @create 2018/12/13
+ * @author lzheng
+ * @create 2019/04/13
  * @since 1.0.0
  */
 public interface RoleDao {
