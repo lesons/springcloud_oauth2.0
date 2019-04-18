@@ -116,4 +116,35 @@ INSERT INTO `role_permission` VALUES (2, 1, 2);
 INSERT INTO `role_permission` VALUES (4, 1, 4);
 INSERT INTO `role_permission` VALUES (5, 1, 5);
 
+
+DROP TABLE IF EXISTS `tb_XX_sys_log.sql`;
+CREATE TABLE `tb_XX_sys_log.sql` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL COMMENT '用户id',
+  `user_mobile` varchar(24) COLLATE utf8mb4_bin DEFAULT NULL,
+  `username` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `level` varchar(24) COLLATE utf8mb4_bin DEFAULT 'INFO',
+  `operation_code` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '请求接口名称',
+  `module` varchar(255) COLLATE utf8mb4_bin DEFAULT 'web-apply' COMMENT '请求接口代码',
+  `result_code` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '交互结果标识',
+  `result_message` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '交互结果信息',
+  `request_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `request_body` mediumtext COLLATE utf8mb4_bin COMMENT '请求参数',
+  `request_header` mediumtext COLLATE utf8mb4_bin COMMENT '请求头',
+  `response_body` mediumtext COLLATE utf8mb4_bin COMMENT '返回结果信息',
+  `add_ip` varchar(25) COLLATE utf8mb4_bin DEFAULT NULL,
+  `version` int(10) DEFAULT '1',
+  `use_millisecond` int(10) DEFAULT '0' COMMENT '访问时长',
+  `deleted` tinyint(2) DEFAULT '0',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '最后更新时间',
+  PRIMARY KEY (`id`),
+  KEY `SYS_LOG_USERID_INDEX` (`user_id`) USING BTREE,
+  KEY `SYS_LOG_LEVEL_INDEX` (`level`) USING BTREE,
+  KEY `SYS_LOG_OP_CODE_INDEX` (`operation_code`) USING BTREE,
+  KEY `SYS_LOG_CREATE_TIME_INDEX` (`create_time`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=288397 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC COMMENT='系统操作日志';
+
+
 SET FOREIGN_KEY_CHECKS = 1;
