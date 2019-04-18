@@ -49,8 +49,8 @@ security:
 
 #----------------------超时配置-------------------
 ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
+  ReadTimeout: 5000
+  ConnectTimeout: 2000
   MaxAutoRetries: 1
   MaxAutoRetriesNextServer: 2
   eureka:
@@ -63,4 +63,4 @@ hystrix:
           enabled: true
         isolation:
           thread:
-            timeoutInMilliseconds: 3500
+            timeoutInMilliseconds: 42000
