@@ -1,3 +1,16 @@
 spring:
   profiles:
     active: dev
+
+
+logging:
+  level:
+      root: info
+  path: /tmp/logs
+  config: classpath:logback-config.xml
+
+lzcloud:
+  starter:
+    syslog:
+      module: lzcloud
+      table-name: system_log
