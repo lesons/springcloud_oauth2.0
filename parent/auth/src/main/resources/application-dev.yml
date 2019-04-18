@@ -45,7 +45,7 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
 
 mybatis:
-  type-aliases-package: com.curise.eshop.common.entity
+  type-aliases-package: com.lzcloud.common.entity
   configuration:
     map-underscore-to-camel-case: true  #开启驼峰命名,l_name -> lName
     jdbc-type-for-null: NULL
