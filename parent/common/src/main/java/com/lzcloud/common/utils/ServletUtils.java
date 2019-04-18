@@ -110,6 +110,10 @@ public class ServletUtils {
         return ip;
     }
 
+    public static String getParameterMap(HttpServletRequest req) {
+        return JSONObject.toJSONString(req.getParameterMap());
+    }
+
 
     /**
      * 获取request对象

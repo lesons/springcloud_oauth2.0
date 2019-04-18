@@ -38,5 +38,5 @@ security:
   oauth2:
     resource:
       id: member
-      user-info-uri: http://localhost:1202/auth/api/member
+      user-info-uri: http://localhost:1202/auth/api/member?resource_id=member
       prefer-token-info: false

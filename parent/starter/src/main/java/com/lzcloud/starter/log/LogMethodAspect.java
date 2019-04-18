@@ -44,10 +44,6 @@ public class LogMethodAspect {
     public void annotationPointCutLog() {
     }
 
-    public static String getParameterMap(HttpServletRequest req) {
-        return JSONObject.toJSONString(req.getParameterMap());
-    }
-
     @Before("annotationPointCutLog()")
     public void BeforeLog(JoinPoint joinPoint) {
         SysUser sysUser = userInfoInterface.getUserInfo();
@@ -58,7 +54,7 @@ public class LogMethodAspect {
         sysLog.setAddIp(ServletUtils.getRemoteIp(request));
         sysLog.setRequestUrl(request.getRequestURI());
         sysLog.setRequestHeader(JSONUtils.toJSONString(ServletUtils.parseHeaderMap(request)));
-        sysLog.setRequestBody(getParameterMap(request));
+        sysLog.setRequestBody(ServletUtils.getParameterMap(request));
         sysLog.setCreateTime(LocalDateTime.now());
         sysLog.setUserMobile(sysUser.getUserMobile());
         sysLog.setUserId(sysUser.getUserId());

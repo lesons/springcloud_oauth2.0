@@ -27,7 +27,7 @@ public class MemberController {
     private ConsumerTokenServices consumerTokenServices;
 
     @GetMapping("/member")
-    public Principal user(Principal member) {
+    public Principal user(Principal member) throws Exception {
         return member;
     }
 

@@ -12,5 +12,5 @@ logging:
 lzcloud:
   starter:
     syslog:
-      module: lzcloud
+      module: lzcloud_auth
       table-name: system_log
