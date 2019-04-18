@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.lzcloud.member","com.lzcloud.common"})
 @EnableDiscoveryClient
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MemberApplication extends SpringBootServletInitializer {

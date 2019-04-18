@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.lzcloud.auth","com.lzcloud.common"})
 @EnableDiscoveryClient
 @MapperScan("com.lzcloud.auth.dao")
 public class AuthApplication {
