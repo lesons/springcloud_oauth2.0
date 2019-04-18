@@ -16,7 +16,7 @@
         <module>starter</module>
     </modules>
     <packaging>pom</packaging>
-    <description>e-shop购物商城</description>
+    <description>lzcloud测试</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
