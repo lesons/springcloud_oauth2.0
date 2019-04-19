@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
+ *
+ * TODO feign 默认不进行认证转发，手动处理OAuth2FeignConguration
  * @BelongsProject: lzcloud
  * @BelongsPackage: com.lzcloud.member
  * @Author: lzheng
