@@ -34,6 +34,9 @@ eureka:
     service-url:
       defaultZone: http://localhost:1111/eureka/
 
+hystrix:
+  shareSecurityContext: true
+
 security:
   oauth2:
     resource:

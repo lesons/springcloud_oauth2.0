@@ -31,6 +31,11 @@ public class MemberController {
         return member;
     }
 
+    @GetMapping("/feignTest")
+    public String feignTest(@RequestParam String name) throws Exception {
+        return "my name is " + name;
+    }
+
     @DeleteMapping(value = "/exit")
     public Result revokeToken(String access_token) {
         Result result = new Result();
