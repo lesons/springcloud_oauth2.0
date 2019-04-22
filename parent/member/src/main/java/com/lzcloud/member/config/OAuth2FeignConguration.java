@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.authentication.OAuth2Authent
 
 /**
  * @BelongsProject: lzcloud
- * @BelongsPackage: com.lzcloud.member.config
+ * @BelongsPackage: com.lzcloud.member.com.lzcloud.zipkin.config
  * @Author: lzheng
  * @DATE: 2019/4/19 10:31
  * @Description:

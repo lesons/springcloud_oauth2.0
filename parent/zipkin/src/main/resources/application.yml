@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+
+
+logging:
+  level:
+      root: info
+  path: /tmp/logs
+  config: classpath:logback-config.xml
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+
+
+

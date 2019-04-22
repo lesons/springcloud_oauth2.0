@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: auth
+  zipkin:
+    base-url: http://localhost:1501
   redis:
     database: 9
     host: 10.122.139.50
@@ -55,3 +57,5 @@ mybatis:
     call-setters-on-nulls: true #map空列不显示问题
   mapper-locations:
     - classpath:mybatis/*.xml
+
+

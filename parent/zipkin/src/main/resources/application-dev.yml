@@ -1,9 +1,6 @@
 spring:
   application:
-    name: member
-  zipkin:
-    base-url: http://localhost:1501
-
+    name: zipkin
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://10.122.139.25:3306/lz_test?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
@@ -27,7 +24,7 @@ spring:
 
 
 server:
-  port: 1201
+  port: 1501
 
 eureka:
   instance:
@@ -37,13 +34,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:1111/eureka/
 
-hystrix:
-  shareSecurityContext: true
-
-security:
-  oauth2:
-    resource:
-      id: member
-      user-info-uri: http://localhost:1202/auth/api/member?resource_id=member
-      prefer-token-info: false
-
+zipkin:
+  storage:
+    type: mysql
