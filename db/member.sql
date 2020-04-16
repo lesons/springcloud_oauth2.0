@@ -117,8 +117,8 @@ INSERT INTO `role_permission` VALUES (4, 1, 4);
 INSERT INTO `role_permission` VALUES (5, 1, 5);
 
 
-DROP TABLE IF EXISTS `tb_XX_sys_log.sql`;
-CREATE TABLE `tb_XX_sys_log.sql` (
+DROP TABLE IF EXISTS `system_log`;
+CREATE TABLE `system_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户id',
   `user_mobile` varchar(24) COLLATE utf8mb4_bin DEFAULT NULL,
