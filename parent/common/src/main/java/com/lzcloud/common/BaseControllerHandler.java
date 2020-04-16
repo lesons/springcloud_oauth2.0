@@ -12,6 +12,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -25,7 +26,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 
 /**
@@ -59,14 +59,14 @@ public class BaseControllerHandler implements ResponseBodyAdvice {
      * @return
      */
     @ExceptionHandler({HttpMessageNotReadableException.class,
-            MissingServletRequestParameterException.class,
-            HttpRequestMethodNotSupportedException.class,
-            HttpMediaTypeNotAcceptableException.class,
-            HttpMediaTypeNotSupportedException.class,
-            TypeMismatchException.class})
+        MissingServletRequestParameterException.class,
+        HttpRequestMethodNotSupportedException.class,
+        HttpMediaTypeNotAcceptableException.class,
+        HttpMediaTypeNotSupportedException.class,
+        TypeMismatchException.class})
     @ResponseBody
     public BaseDTO handle400Exception(HttpServletRequest req, HttpServletResponse resp, Exception exception) {
-        log.warn("handleSupportedException parameter info:{}==={}", req.getRequestURI(),ServletUtils.getParameterMap(req));
+        log.warn("handleSupportedException parameter info:{}==={}", req.getRequestURI(), ServletUtils.getParameterMap(req));
         log.warn("handleSupportedException ex info:{}==={}", exception.getClass(), exception.getMessage());
         resp.setStatus(400);
         if (exception instanceof HttpMessageNotReadableException) {
@@ -80,9 +80,19 @@ public class BaseControllerHandler implements ResponseBodyAdvice {
     @ResponseBody
     public BaseDTO noHandlerFoundException(HttpServletRequest req, HttpServletResponse resp, Exception exception) {
         log.warn("noHandlerFoundException 404 info:{}", req.getRequestURI());
-        log.warn("noHandlerFoundException parameter info" +ServletUtils.getParameterMap(req));
+        log.warn("noHandlerFoundException parameter info" + ServletUtils.getParameterMap(req));
         resp.setStatus(404);
         return getResult("404", "找不到请求方法");
+    }
+
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseBody
+    public BaseDTO accessDeniedException(HttpServletRequest req, HttpServletResponse resp, AccessDeniedException exception) {
+        log.warn("noHandlerFoundException 403 info:{}", req.getRequestURI());
+        log.warn("noHandlerFoundException parameter info" + ServletUtils.getParameterMap(req));
+        resp.setStatus(403);
+        return getResult("403", "没有访问权限");
     }
 
 
@@ -90,7 +100,7 @@ public class BaseControllerHandler implements ResponseBodyAdvice {
     @ResponseBody
     public BaseDTO handleException(HttpServletRequest req, HttpServletResponse resp, Exception exception) {
         exception.printStackTrace();
-        log.error("handleException parameter info:{}=={}", req.getRequestURI(),ServletUtils.getParameterMap(req));
+        log.error("handleException parameter info:{}=={}", req.getRequestURI(), ServletUtils.getParameterMap(req));
         log.error("handleException ex info:{}=={}", exception.getClass(), exception.getMessage());
         //业务服务异常
         resp.setStatus(500);
@@ -112,10 +122,10 @@ public class BaseControllerHandler implements ResponseBodyAdvice {
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
         return !returnType.getMethod().getName().equals("ssoLogin")
-                && !returnType.getMethod().getName().equals("verify")
-                && !returnType.getMethod().getName().equals("loginOut")
-                && !returnType.getMethod().getName().equals("scope")
-                && !returnType.getMethod().getName().equals("ticket");
+            && !returnType.getMethod().getName().equals("verify")
+            && !returnType.getMethod().getName().equals("loginOut")
+            && !returnType.getMethod().getName().equals("scope")
+            && !returnType.getMethod().getName().equals("ticket");
     }
 
 

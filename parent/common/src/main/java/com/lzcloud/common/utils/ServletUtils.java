@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author zcm
+ * @author lz
  * @description 获取servlet请求与响应信息
  * @since 2017-07-27
  */

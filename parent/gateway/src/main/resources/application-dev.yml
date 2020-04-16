@@ -54,7 +54,7 @@ ribbon:
   ReadTimeout: 5000
   ConnectTimeout: 2000
   MaxAutoRetries: 1
-  MaxAutoRetriesNextServer: 2
+  MaxAutoRetriesNextServer: 1
   eureka:
     enabled: true
 hystrix:
